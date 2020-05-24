@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/adamheald13/prototype-base#readme",
   "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
     "parcel-bundler": "^1.12.4",
     "typescript": "^3.9.3"
   },
