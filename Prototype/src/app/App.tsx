@@ -15,22 +15,49 @@ const App = () => {
   const onMageweaveChange = (event) => setMageweaveCount(event.target.value);
   const onMithrilChange = (event) => setMithrilCount(event.target.value);
   const onPowderChange = (event) => setPowderCount(event.target.value);
+  const onTriggerChange = (event) =>
+    setUnstableTriggerCount(event.target.value);
 
-  useEffect(() => {
-    const newUnstableTriggerCount = Math.min(
-      mithrilCount,
-      powderCount,
-      mageweaveCount
-    );
-    const newSapperCount = Math.min(
+  const sapperCraftsWithTriggers = (
+    numMageweave: number,
+    numPowder: number,
+    numTriggers: number
+  ): number => Math.floor(Math.min(numTriggers, numMageweave, numPowder / 3));
+
+  const sapperCraftsWithRawMats = (
+    numMageweave: number,
+    numPowder: number,
+    numMithril: number
+  ): number =>
+    Math.floor(Math.min(numMageweave / 2, numPowder / 4, numMithril));
+
+  const calculateNumberOfSapperCrafts = () => {
+    const craftsWithCurrentTriggers = sapperCraftsWithTriggers(
       mageweaveCount,
-      powderCount / 3,
-      newUnstableTriggerCount
+      powderCount,
+      unstableTriggerCount
     );
 
-    setUnstableTriggerCount(Math.floor(newUnstableTriggerCount));
-    setSapperCount(Math.floor(newSapperCount));
-  }, [mageweaveCount, mithrilCount, powderCount]);
+    const leftoverMageweave = mageweaveCount - craftsWithCurrentTriggers;
+    const leftoverMithril = mithrilCount;
+    const leftoverPowder = powderCount - craftsWithCurrentTriggers * 3;
+
+    // AKA how many triggers you need to craft for optimal number of sappers
+    const craftsFromLeftovers = sapperCraftsWithRawMats(
+      leftoverMageweave,
+      leftoverPowder,
+      leftoverMithril
+    );
+
+    setSapperCount(craftsFromLeftovers + craftsWithCurrentTriggers);
+  };
+
+  useEffect(() => calculateNumberOfSapperCrafts(), [
+    unstableTriggerCount,
+    mageweaveCount,
+    mithrilCount,
+    powderCount,
+  ]);
 
   return (
     <>
@@ -89,6 +116,7 @@ const App = () => {
           id="unstable-trigger"
           type="number"
           value={unstableTriggerCount}
+          onChange={onTriggerChange}
         />
       </div>
       <h1>Craftables</h1>
