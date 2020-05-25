@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <>
-      <div id="header" className="border-b-4">
+      <div id="header" className="border-b-4 border-warrior-brown bg-mage-blue">
         <span className="cursor-pointer" onClick={onHomeClick}>
           Mab's Mill
         </span>
