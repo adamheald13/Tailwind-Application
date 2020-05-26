@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       colors: classColors,
     },
+    inset: {
+      "-24": "-24px",
+    },
   },
   variants: {},
   plugins: [],

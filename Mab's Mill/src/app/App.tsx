@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import Home from "./Home";
 import Sapper from "../calculators/Sapper";
 import ThoriumGrenade from "../calculators/ThoriumGrenade";
+import Header from "./Header";
 
 export enum Page {
   Home,
@@ -11,10 +12,6 @@ export enum Page {
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(Page.Home);
-
-  const onHomeClick = useCallback(() => setCurrentPage(Page.Home), [
-    setCurrentPage,
-  ]);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -28,9 +25,13 @@ const App = () => {
   };
 
   return (
-    <>
-      <div className="container mx-auto">{renderPage()}</div>
-    </>
+    <div className="container mx-auto">
+      <Header
+        page={currentPage}
+        setPageHome={() => setCurrentPage(Page.Home)}
+      />
+      {renderPage()}
+    </div>
   );
 };
 
