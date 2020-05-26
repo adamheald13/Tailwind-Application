@@ -24,6 +24,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@svgr/parcel-plugin-svgr": "^5.4.0",
     "autoprefixer": "^9.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

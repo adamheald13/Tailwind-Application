@@ -29,12 +29,12 @@ const App = () => {
 
   return (
     <>
-      <div id="header" className="border-b-4 border-warrior-brown bg-mage-blue">
+      {/* <div id="header" className="border-b-4">
         <span className="cursor-pointer" onClick={onHomeClick}>
           Mab's Mill
         </span>
-      </div>
-      {renderPage()}
+      </div> */}
+      <div className="container mx-auto">{renderPage()}</div>
     </>
   );
 };
