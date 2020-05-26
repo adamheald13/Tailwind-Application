@@ -13,6 +13,10 @@ export enum Page {
 const App = () => {
   const [currentPage, setCurrentPage] = useState(Page.Home);
 
+  const onHomeClick = useCallback(() => setCurrentPage(Page.Home), [
+    setCurrentPage,
+  ]);
+
   const renderPage = () => {
     switch (currentPage) {
       case Page.Home:
@@ -26,10 +30,7 @@ const App = () => {
 
   return (
     <div className="container mx-auto">
-      <Header
-        page={currentPage}
-        setPageHome={() => setCurrentPage(Page.Home)}
-      />
+      <Header page={currentPage} setPageHome={onHomeClick} />
       {renderPage()}
     </div>
   );
