@@ -29,11 +29,6 @@ const App = () => {
 
   return (
     <>
-      {/* <div id="header" className="border-b-4">
-        <span className="cursor-pointer" onClick={onHomeClick}>
-          Mab's Mill
-        </span>
-      </div> */}
       <div className="container mx-auto">{renderPage()}</div>
     </>
   );
