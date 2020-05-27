@@ -1,22 +1,15 @@
 {
-  "name": "prototype-base",
+  "name": "mabs-mill",
   "version": "1.0.0",
   "description": "A base that I can pull down when I want to quickly prototype something in React",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adamheald13/prototype-base.git"
+    "dev": "parcel index.html --open",
+    "build": "rm -rf dist && parcel build index.html --public-url ./"
   },
   "author": "Adam Heald",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/adamheald13/prototype-base/issues"
-  },
-  "homepage": "https://github.com/adamheald13/prototype-base#readme",
   "devDependencies": {
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
