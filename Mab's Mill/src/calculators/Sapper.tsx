@@ -52,8 +52,7 @@ const Sapper = () => {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-2xl mt-4">Goblin Sapper Charge</h1>
-      {/* <span className="mx-auto text-3xl">{sapperCount}</span> */}
+      <h1 className="text-2xl mt-4">Goblin Sapper Charges: {sapperCount}</h1>
       <div className="flex justify-center flex-wrap">
         <div className="item-card border border-gray-200">
           <label className="item-card-text">Unstable Trigger</label>
