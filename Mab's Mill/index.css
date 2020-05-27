@@ -2,4 +2,26 @@
 
 @tailwind components;
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.item-card {
+  @apply bg-gray-600 p-2 rounded-lg m-4 flex-grow flex justify-between w-380 max-w-380;
+}
+
+.item-card-img {
+  @apply inline rounded-md;
+}
+
+.item-card-text {
+  @apply self-end text-2xl;
+}
+
+.item-card-input {
+  @apply bg-gray-600 text-xl border-b border-gray-100 ml-auto mr-2 mt-auto w-12 bg-opacity-0 z-10 h-8;
+}
+
 @tailwind utilities;
